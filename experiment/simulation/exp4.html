@@ -1,0 +1,58 @@
+<html>
+<head>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body onkeydown="getKeyAndMove(event)">
+
+<div id="compute">
+
+<p id="table_head2"style="position:absolute;font-size:20px;font-weight:bolder;margin-left:50px;margin-top:160px;display:none;">OBSERVATION TABLE</p>
+
+<table id="t2" border="1" style="width:900px;height:500px;">
+
+<tr ><th rowspan="2" style="width:40px;" >Points</th><th style="width:50px;"  colspan="3" rowspan="1">Staff Reading (m)</th><th style="width:90px;" colspan="2">Difference in Elevation (m)</th><th  style="width:100px;" rowspan="2">H.I.</th><th rowspan="2" style="width:100px;">R.L.</th><th rowspan="2" style="width:30px;">Remarks</th></tr>
+<tr><th style="width:100px;">B.S.</th><th style="width:100px;">I.S.</th><th style="width:100px;">F.S.</th><th style="width:100px;">Rise</th><th style="width:100px;">Fall</th></tr>
+<tr id="c1"><td id="c11">A</td><td id="c12">3.005</td><td></td><td></td><td></td><td></td><td id="c13">108.620</td><td id="c14">105.615</td><td></td></tr>
+<tr id="c2"><td id="c21">1</td><td></td><td id="c22">2.285</td><td></td><td id="c23">0.720</td><td></td><td></td><td id="c24">106.335</td><td></td></tr>
+<tr id="c3"><td id="c31">2</td><td></td><td id="c32">1.560</td><td ></td><td id="c33">0.725</td><td></td><td></td><td id="c34">107.060</td><td></td></tr>
+<tr id="c4"><td id="c41">3</td><td></td><td id="c42">1.785</td><td></td><td ></td><td id="c43">0.225</td><td></td><td id="c44">106.835</td><td></td></tr>
+<tr id="c5"><td id="c51">4</td><td></td><td id="c52">2.105</td><td></td><td></td><td id="c53">0.320</td><td></td><td id="c54">106.515</td><td></td></tr>
+<tr id="c6"><td id="c61">B</td><td id="c62">2.875</td><td></td><td id="c63">3.105</td><td ></td><td id="c64">1.000</td><td id="c65">108.390</td><td id="c66">105.515</td><td id="c67">TP 1</td></tr>
+<tr id="c7"><td id="c71">5</td><td></td><td id="c72">3.465</td><td></td><td></td><td id="c73">0.590</td><td></td><td id="c74">104.925</td><td></td></tr>
+<tr id="c8"><td id="c81">X</td><td></td><td id="c82">3.955</td><td></td><td></td><td id="c83">0.490</td><td></td><td id="c84">104.435</td><td></td></tr>
+<tr id="c9"><td id="c91">6</td><td></td><td id="c92">3.120</td><td></td><td id="c93">0.835</td><td></td><td></td><td id="c94">105.270</td><td></td></tr>
+<tr id="c10"><td id="c101">7</td><td></td><td id="c102">3.015</td><td></td><td id="c103">0.105</td><td></td><td></td><td id="c104">105.375</td><td></td></tr>
+<tr id="c11"><td id="c111">8</td><td></td><td id="c112">2.580</td><td></td><td id="c113">0.435</td><td></td><td></td><td id="c114">105.810</td><td></td></tr>
+<tr id="c12"><td id="c121">9</td><td></td><td id="c122">1.955</td><td></td><td id="c123">0.625</td><td></td><td></td><td id="c124">106.435</td><td></td></tr>
+<tr id="t13"><td id="t131">C</td><td></td><td></td><td id="t132">1.465</td><td id="t133">0.490</td><td></td><td></td><td id="t134">106.925</td><td></td></tr>
+<tr id="t14"><td></td><td></td><td id="t141">5.880</td><td id="t142">4.570</td><td id="t143">3.935</td><td id="t144">2.625</td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<button id="rst_main2"  onclick="location.reload();">RESET</button>
+<button id="formula" >FORMULA</button>
+<span id="formula_span"><b>1) <u>Rise</u> & <u>fall</u> <u>method</u><br><br>&nbsp&nbsp&nbsp&nbsp B.S. - I.S.  or I.S. - F.S.<br>
+&nbsp&nbsp&nbsp&nbsp If:<br>
+&nbsp&nbsp&nbsp&nbsp B.S. - F.S. = +ve → Rise<br><br>
+
+&nbsp&nbsp&nbsp&nbsp B.S. - F.S. = -ve → Fall</b>
+<br><br>
+
+<b>2) <u>H.I.</u> <u>method</u><br><br>
+&nbsp&nbsp&nbsp&nbsp H.I. = B.M. + B.S.<br><br>
+
+&nbsp&nbsp&nbsp&nbsp R.L. = H.I. -F.S./I.S.</span>
+<button id="ele" onclick="ele()">CALCULATE: DIFFERENCE IN ELEVATION</button>
+<button id="hi" onclick="hi()">CALCULATE: H.I.</button>
+<button id="ri" onclick="ri()">CALCULATE: R.I.</button>
+<a href="index.html"><button id="finish2" >FINISH</button></a>
+
+ 
+<script src="js/main3.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<html>
+<head>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body onkeydown="getKeyAndMove(event)">
+
+    <div id="main_ob_plot">
+    <button id="ins">INSTRUCTIONS
+    </button>
+         <span id="ins_span"><b>1.</b>  Click on the <b>EQUIPMENT SETUP</b> Button.<br><br>
+<b>2.</b> After this, you need to setup autolevel instrument by placing it on the tripod using keyboard keys i.e. q:left movement,w:right movement,s:up movement,x:down movement.<br><br>
+<b>3.</b> After this, click on <b>LEVEL SETUP</b> Button & setup blue bubble dot to the center by using keyboard keys i.e.l:left movement,r:right movement,u:up movement,d:down movement.<br><br>
+<b>4.</b> After this, click on the <b> NEXT</b> Button.<br><br>
+<b>5.</b> Click on the START Button, staff at point A & observation table will appear.<br><br>
+<b>6.</b> Click on the staff at point A & take a back sight, marked as the bench mark, after this points will automatically mark at regular intervals..<br><br>
+<b>7.</b> Click on the NEXT Button. Take the observtaions at these regular intervals (points i.e.1,2,34) with the help of staff( click on each staff).<br><br>
+<b>8.</b>Click on the NEXT Button & take a fore sight observation at TP 1 point. Click on the autolevel machine to move it at another location <br><br>
+<b>9.</b> Now take a back sight observation on TP1 & take observations at these regular intervals (points 5,6,7,8,9) with the help of staff & then click on the NEXT Button.<br><br>
+<b>10.</b> Now take a fore sight observation on final station C & also take the observtaions at salient point X.<br><br>
+<b>11.</b> Click on CALCULATE Button. & calculate obseravtions with the help of three buttons i.e. CALCULATE H.I.,CALCULATE R.I. & CALCULATE: DIFFERENCE IN ELEVATION.<br><br>
+<b>12.</b> Click on the FINISH Button to finish simulation.<br><br>
+</span>
+    
+
+
+<img id="alidade_img" src="images\alidade.PNG">
+<img src="images\a.PNG" id="cross_viewa">
+<img src="images\b.PNG" id="cross_viewb">
+<img src="images\C.PNG" id="cross_viewc">
+<img src="images\d.PNG" id="cross_viewd">
+<p id="table_head"style="position:absolute;font-size:20px;font-weight:bolder;margin-left:50px;margin-top:160px;display:none;">OBSERVATION TABLE</p>
+<table id="t" border="1">
+<tr ><th>POINTS</th><th>B.S.</th><th>I.S.</th><th>F.S.</th><th>REMARKS</th></tr>
+<tr id="v1"><td id="v11">A</td><td id="v12">3.005</td><td></td><td></td><td></td></tr>
+<tr id="v2"><td id="v21">1</td><td></td><td id="v22">2.285</td><td></td><td></td></tr>
+<tr id="v3"><td id="v31">2</td><td></td><td id="v32">1.560</td><td ></td><td></td></tr>
+<tr id="v4"><td id="v41">3</td><td></td><td id="v42">1.785</td><td></td><td></td></tr>
+<tr id="v5"><td id="v51">4</td><td></td><td id="v52">2.105</td><td></td><td></td></tr>
+<tr id="v6"><td id="v61">B</td><td id="v62">2.875</td><td></td><td id="v63">3.105</td><td id="v64">TP 1</td></tr>
+<tr id="v7"><td id="v71">5</td><td></td><td id="v72">3.465</td><td></td><td ></td></tr>
+<tr id="v8"><td id="v81">X</td><td></td><td id="v82">3.955</td><td></td><td></td></tr>
+<tr id="v9"><td id="v91">6</td><td></td><td id="v92">3.120</td><td></td><td></td></tr>
+<tr id="v10"><td id="v101">7</td><td></td><td id="v102">3.015</td><td></td><td></td></tr>
+<tr id="v11"><td id="v111">8</td><td></td><td id="v112">2.580</td><td></td><td></td></tr>
+<tr id="v12"><td id="v121">9</td><td></td><td id="v122">1.955</td><td></td><td></td></tr>
+<tr id="v13"><td id="v131">C</td><td></td><td></td><td id="v132">1.465</td><td></td></tr>
+</table>
+<img id="stand_img" src="images\stand.png">
+<img id="tri_img_main" src="images\trimodel.png" onclick="shift()">
+<p id="tripod_l">Tripod</p>
+<img id="tri_img_main2" src="images\trimodel2.png" onclick="shift2()">
+<p id="tripod_l2">Tripod</p>
+
+<img id="autolevel_main" src="images\auto_sim.PNG" onclick="shift()">
+<p id="autolevel_l">Autolevel</p> 
+<img id="autolevel_main2" src="images\auto_sim.PNG" onclick="shift2()">
+<p id="autolevel_l2">Autolevel</p> 
+
+<img id="staff_maina" src="images\staffa.png" onclick="viewa()" >
+<img id="staff_mainb" src="images\staffb.png" onclick="viewb()">
+<img id="staff_mainc" src="images\staffc.png" onclick="viewc()" disabled>
+<img id="staff_maind" src="images\staffd.png" onclick="viewd()" disabled>
+<img id="staff_maine" src="images\staffe.png" onclick="viewe()" disabled>
+<img id="staff_mainf" class="obj" src="images\stafff.png" onclick="viewf()">
+<img id="staff_maing" class="obj" src="images\staffg.png" onclick="viewg()">
+<img id="staff_mainh" src="images\staffh.png" onclick="viewh()">
+<img id="staff_maini" class="obj" src="images\staffi.png" onclick="viewi()">
+<img id="staff_mainj" class="obj" src="images\staffj.png" onclick="viewj()">
+<img id="staff_maink" class="obj" src="images\staffk.png" onclick="viewk()">
+<img id="staff_mainl" class="obj" src="images\staffl.png" onclick="viewl()">
+<img id="staff_mainm" src="images\staffm.png" onclick="viewm()">
+
+
+<img id="pointa" src="images\point.png" >
+<img id="point1" src="images\point.png" >
+<img id="point2" src="images\point.png" >
+<img id="point3" src="images\point.png" >
+<img id="point4" src="images\point.png" >
+<img id="pointtp1" src="images\point.png" >
+<img id="point5" src="images\point.png" >
+<img id="pointx" src="images\point.png" >
+<img id="point6" src="images\point.png" >
+<img id="point7" src="images\point.png" >
+<img id="point8" src="images\point.png" >
+<img id="point9" src="images\point.png" >
+<img id="pointc" src="images\point.png" >
+<label id="l1" style="position:absolute;margin-left:450px;margin-top:490px;font-weight:bolder;font-size:26px;">A</label>
+<label id="l2" style="position:absolute; margin-left: 540px;margin-top: 470px;font-weight:bolder;font-size:26px;">1</label>
+<label id="l3" style="position:absolute; margin-left: 630px;margin-top: 445px;font-weight:bolder;font-size:26px;">2</label>
+<label id="l4" style="position:absolute; margin-left: 720px;margin-top: 432px;font-weight:bolder;font-size:26px;">3</label>
+<label id="l5" style="position:absolute; margin-left: 810px;margin-top: 425px;font-weight:bolder;font-size:26px;">4</label>
+<label id="l6" style="position:absolute; margin-left: 930px;margin-top: 433px;font-weight:bolder;font-size:26px;">TP1</label>
+<label id="l7" style="position:absolute; margin-left: 1050px;margin-top: 450px;font-weight:bolder;font-size:26px;">5</label>
+<label id="l8" style="position:absolute; margin-left: 1135px; margin-top: 470px;font-weight:bolder;font-size:26px;">X</label>
+<label id="l9" style="position:absolute; margin-left: 1205px;margin-top: 455px;font-weight:bolder;font-size:26px;">6</label>
+<label id="l10" style="position:absolute; margin-left: 1275px;margin-top: 450px;font-weight:bolder;font-size:26px;">7</label>
+<label id="l11" style="position:absolute; margin-left: 1345px;margin-top: 450px;font-weight:bolder;font-size:26px;">8</label>
+<label id="l12" style="position:absolute; margin-left: 1415px;margin-top: 460px;font-weight:bolder;font-size:26px;">9</label>
+<label id="l13" style="position:absolute; margin-left: 1500px;margin-top: 470px;font-weight:bolder;font-size:26px;">C</label>
+
+<a href="exp4.html"><button id="cal" >CALCULATE</button></a>
+
+<button id="st_main" onclick="start()">START</button>
+<button id="next_main" onclick="n()">NEXT</button>
+<button id="next_main2" onclick="n2()">NEXT</button>
+<button id="rst_main" onclick="location.reload();" >RESET</button>
+</div>
+ 
+<script src="js/main3.js"></script>
+
+</body>
+</html>
